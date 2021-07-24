@@ -36,10 +36,67 @@ namespace Calculator
                     break;
             }
 
-            Console.WriteLine("Please indicate me how you would like to use this calculator");
-            var indication = Console.ReadLine();
-            Console.WriteLine(indication);
-        
+            Console.WriteLine("Please type +, -, /, *, or ^2 of your preference");
+            var key = Console.ReadLine();
+            Console.WriteLine("Then type your numbers you want to calculate like 1,2,3");
+            var calculate = Console.ReadLine();
+
+            switch (key)
+            {
+                case "+":
+                    var sum = 0;
+                    var numbers = calculate.Split(',');
+                    for (var i = 0; i < numbers.Length; i++)
+                    {
+                        sum += int.Parse(numbers[i]);
+                    }
+                    Console.WriteLine(sum);
+                    break;
+                case "-":  
+                    var subtractNum = calculate.Split(',');
+                    int subtract = int.Parse(subtractNum[0]);
+                    for (var i = 1; i < subtractNum.Length; i++)
+                    {
+                        subtract -= int.Parse(subtractNum[i]);
+                    }
+                    Console.WriteLine(subtract);
+                    break;
+                case "^2":
+                    var square = "";
+                    var squareNumber = calculate.Split(',');
+                    for (var i = 0; i < squareNumber.Length; i++)
+                    {
+                        square += int.Parse(squareNumber[i]) * int.Parse(squareNumber[i]);
+                        square += ',';
+                    }
+                    Console.WriteLine(square.TrimEnd(','));
+                    break;
+                case "/":
+                    var divideNum = calculate.Split(',');
+                    int divide = int.Parse(divideNum[0]);
+                    for (var i = 1; i < divideNum.Length; i++)
+                    {
+                        divide /= int.Parse(divideNum[i]);
+                    }
+                    Console.WriteLine(divide);
+                    break;
+                case "*":
+                    var multiNum = calculate.Split(',');
+                    var multi = int.Parse(multiNum[0]);
+                    for (var i = 1; i < multiNum.Length; i++)
+                    {
+                        multi *= int.Parse(multiNum[i]);
+                    }
+                    Console.WriteLine(multi);
+                    break;
+                default:
+                    Console.WriteLine("invalid");
+                    break;
+            }
+            
+
+
+
 
 
         }
