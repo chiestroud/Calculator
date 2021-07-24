@@ -14,17 +14,33 @@ namespace Calculator
             {
                 case "multiply":
                     var numbers = line.Split(',');
-                    Console.WriteLine(int.Parse(numbers[0]) * int.Parse(numbers[1]) * int.Parse(numbers[2]));
+                    var mul = 1;
+                    for (var i = 0; i < numbers.Length; i++)
+                    {
+                        mul *= int.Parse(numbers[i]);
+                    }
+                    Console.WriteLine(mul);
                     break;
                 case "square":
                     var squareNum = line.Split(',');
-                    Console.WriteLine(int.Parse(squareNum[0]) * int.Parse(squareNum[0]) + "," + int.Parse(squareNum[1]) * int.Parse(squareNum[1]) + "," + int.Parse(squareNum[2]) * int.Parse(squareNum[2]));
+                    var squ = "";
+                    for (var i = 0; i < squareNum.Length; i++)
+                    {
+                        squ += int.Parse(squareNum[i]) * int.Parse(squareNum[i]);
+                        squ += ',';
+                    }
+                    Console.WriteLine(squ.TrimEnd(','));
                     break;
                 default:
                     Console.WriteLine("Invalid");
                     break;
             }
-           
+
+            Console.WriteLine("Please indicate me how you would like to use this calculator");
+            var indication = Console.ReadLine();
+            Console.WriteLine(indication);
+        
+
 
         }
     }
